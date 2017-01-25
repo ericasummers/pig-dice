@@ -1,18 +1,19 @@
 // back end
 
-var turnOption = ""
+var turnOption = "";
+
 function Player (playerName, initialScore, ongoingScore) {
   this.playerName = name;
   this.score = score;
-  this.ongoingScore = ongoing score;
+  this.ongoingScore = ongoingScore;
 }
 
-Player.prototype.updateScore = function() {
-  this.score +  this.score  = this.ongoingScore;
-}
+// Player.prototype.updateScore = function() {
+//   this.score +  this.score  = this.ongoingScore;
+// }
 
 
-Player.prototype.
+// Player.prototype.
 
 
 function roll(min, max) {
@@ -30,13 +31,13 @@ function rollReturn(roll) {
   }
 }
 
-function turn (){
+function turn() {
   if (turnOption === hold) {
-    return score + roll
-  } else (turnOption === rollAgain) {
-    turnScore.push(roll)
+    return score + roll;
+  } else if (turnOption === rollAgain) {
+    turnScore.push(roll);
   }
-}
+};
 
 
 
@@ -46,10 +47,10 @@ $(function () {
     event.preventDefault();
     var playerName = $("input#name").val();
   });
-  $("roll").click(function() {
+  $("#roll").click(function() {
     var rollResult = roll(1, 6);
-    $("#showroll").append("<li>" + rollResult + "</li>");
-    $("#output").show();
+    $("#showroll").text(rollResult);
+    //$("#output1").show();
   });
-parseInt(input and ongoing score)
+//parseInt(input and ongoing score)
 });
