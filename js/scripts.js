@@ -40,13 +40,14 @@ function turn() {
 
 // front end
 $(function () {
-  $("form.nameInputs").submit(function(event) {
+  $(".nameInputs").submit(function(event) {
     event.preventDefault();
-    var playerOneName = $("input#playeronename").val();
-    var playerTwoName = $("input#playertwoname").val();
-    $(".ponename").text(playerOneName)
-    $(".ptwoname").text(playerTwoName)
+    var playerOneNameInput = $("input#playeronename").val();
+    var playerTwoNameInput = $("input#playertwoname").val();
+    $(".ponename").text(playerOneNameInput);
+    $(".ptwoname").text(playerTwoNameInput);
   });
+
   $("#roll").click(function() {
     var rollResult = roll(1, 6);
     $("#showroll").text(rollResult);
