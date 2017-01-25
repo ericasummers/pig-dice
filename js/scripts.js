@@ -1,6 +1,6 @@
 // back end
-
 var turnOption = "";
+var turnScore = [];
 
 function Player (playerName, initialScore, ongoingScore) {
   this.playerName = name;
@@ -20,14 +20,12 @@ function roll(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+
 function rollReturn(roll) {
   if (roll == 1) {
-    alert("Your turn is over!")
-    return score;
+    alert("Your turn is over")
   } else {
     alert("Would you like to hold or roll again?")
-    return turnOptions
-    turnScore.push(roll)
   }
 }
 
@@ -35,9 +33,8 @@ function turn() {
   if (turnOption === hold) {
     return score + roll;
   } else if (turnOption === rollAgain) {
-    turnScore.push(roll);
   }
-};
+}
 
 
 
@@ -50,7 +47,26 @@ $(function () {
   $("#roll").click(function() {
     var rollResult = roll(1, 6);
     $("#showroll").text(rollResult);
-    //$("#output1").show();
+    turnScore.push(rollResult);
+    alert(turnScore);
+
+    rollReturn(rollResult);
+    $("#hold").removeClass("btn disabled");
+    $("#hold").addClass("btn active");
+
+    $("#hold").click(function() {
+      var turnSum = 0;
+      for (var index = 0; index < turnScore.length; index += 1) {
+      turnSum += turnScore[index];
+      }
+      alert(turnSum);
+      $(".ponescore").text(turnSum);
+    });
   });
-//parseInt(input and ongoing score)
 });
+//parseInt(input and ongoing score)
+  // $("#rollAgain").click(function() {
+  //   var rollResult = roll(1, 6);
+  //   $("#showroll").text(rollResult);
+
+// });
