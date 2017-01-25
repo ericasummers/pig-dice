@@ -4,10 +4,9 @@ var turnScore = [];
 var roundOver = "Your turn is over";
 var roundPlay = "Would you like to hold or roll again?";
 
-function Player (playerName, initialScore, ongoingScore) {
+function Player (playerName, score) {
   this.playerName = name;
-  this.score = score;
-  this.ongoingScore = ongoingScore;
+  this.score = [];
 }
 
 // Player.prototype.updateScore = function() {
@@ -16,6 +15,9 @@ function Player (playerName, initialScore, ongoingScore) {
 
 
 // Player.prototype.
+
+var player1 = new Player("playerone",0)
+var player2 = new Player("playertwo",0)
 
 
 function roll(min, max) {
@@ -60,10 +62,24 @@ $(function () {
       for (var index = 0; index < turnScore.length; index += 1) {
       turnSum += turnScore[index];
       }
-      // alert(turnSum);
+
+      if ($(".player1show").is(':visible')) {
       $(".ponescore").text(turnSum);
+      } else if ($(".player2show").is(':visible')) {
+      $(".ptwoscore").text(turnSum);
+      }
+
     });
   });
+    $("#switch").click(function() {
+      if ($(".player1show").is(':visible')) {
+      $(".player2show").toggle();
+      $(".player1show").toggle();
+    } else if ($(".player2show").is(':visible')) {
+      $(".player1show").toggle();
+      $(".player2show").toggle();
+      }
+    });
 });
 //parseInt(input and ongoing score)
   // $("#rollAgain").click(function() {

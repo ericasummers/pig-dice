@@ -9,3 +9,7 @@
 #gameplay {
   background-color: #87E0E5;
 }
+
+.player2show {
+  display: none;
+}
