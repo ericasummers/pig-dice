@@ -40,9 +40,12 @@ function turn() {
 
 // front end
 $(function () {
-  $("form").submit(function(event) {
+  $("form.nameInputs").submit(function(event) {
     event.preventDefault();
-    var playerName = $("input#name").val();
+    var playerOneName = $("input#playeronename").val();
+    var playerTwoName = $("input#playertwoname").val();
+    $(".ponename").text(playerOneName)
+    $(".ptwoname").text(playerTwoName)
   });
   $("#roll").click(function() {
     var rollResult = roll(1, 6);

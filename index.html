@@ -14,7 +14,7 @@
     <div class="header">
       <h1>Pig Dice Game</h1>
     </div>
-    <div class="nameinputs">
+    <div class="nameInputs">
       <div class="form-group row">
         <label for="playeronename" class="col-2 col-form-label">Player 1: Enter your name!</label>
         <div class="col-10">
@@ -27,6 +27,7 @@
             <input class="form-control" type="text" value="Your name here" id="playertwoname">
         </div>
       </div>
+      <button type="submit" class="btn" id="names">Enter Names</button>
     </div>
     <div class="rulesinfo">
       <h3>Rules:</h3>
@@ -66,15 +67,16 @@
       </div>
 
     </div>
-    <div class="gameplay">
-      <h3>Play</h3>
-      <button type="button" class="btn" id="roll">Roll!</button>&nbsp;&nbsp;<button type="button" class="btn disabled" id="hold">Hold</button>
-        <!-- <button type="button" class="btn" id="rollAgain">Roll again!</button> -->
+    <div class="panel" id="gameplay">
+      <div class="panel-body">
+        <h3>Play</h3>
+        <button type="button" class="btn" id="roll">Roll!</button>&nbsp;&nbsp;<button type="button" class="btn disabled" id="hold">Hold</button>
+          <!-- <button type="button" class="btn" id="rollAgain">Roll again!</button> -->
 
-      <p id="showroll">
+        <p id="showroll">
 
-      </p>
-
+        </p>
+      </div>
     </div>
 
   </div>
