@@ -1,6 +1,8 @@
 // back end
 var turnOption = "";
 var turnScore = [];
+var roundOver = "Your turn is over";
+var roundPlay = "Would you like to hold or roll again?";
 
 function Player (playerName, initialScore, ongoingScore) {
   this.playerName = name;
@@ -22,20 +24,14 @@ function roll(min, max) {
 
 
 function rollReturn(roll) {
-  if (roll == 1) {
-    alert("Your turn is over")
+  if (roll === 1) {
+    // alert(roundOver);
+    return roundOver;
   } else {
-    alert("Would you like to hold or roll again?")
+    return roundPlay;
   }
-}
 
-function turn() {
-  if (turnOption === hold) {
-    return score + roll;
-  } else if (turnOption === rollAgain) {
-  }
 }
-
 
 
 // front end
@@ -52,18 +48,19 @@ $(function () {
     var rollResult = roll(1, 6);
     $("#showroll").text(rollResult);
     turnScore.push(rollResult);
-    alert(turnScore);
+    // alert(turnScore);
 
-    rollReturn(rollResult);
+    var turnOutput = rollReturn(rollResult);
     $("#hold").removeClass("btn disabled");
     $("#hold").addClass("btn active");
+    $("#showResult").text(turnOutput);
 
     $("#hold").click(function() {
       var turnSum = 0;
       for (var index = 0; index < turnScore.length; index += 1) {
       turnSum += turnScore[index];
       }
-      alert(turnSum);
+      // alert(turnSum);
       $(".ponescore").text(turnSum);
     });
   });
