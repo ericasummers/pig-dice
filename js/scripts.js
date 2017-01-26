@@ -5,7 +5,7 @@ var roundOver = "Your turn is over";
 var roundPlay = "Would you like to hold or roll again?";
 
 function Player (playerName, score) {
-  this.playerName = name;
+  this.pName = name;
   this.score = 0;
 }
 
@@ -16,8 +16,8 @@ function Player (playerName, score) {
 
 // Player.prototype.
 //
-var player1 = new Player("playerone",0)
-var player2 = new Player("playertwo",0)
+var pOne = new Player("pOne",0)
+var pTwo = new Player("pTwo",0)
 
 
 function roll(min, max) {
@@ -40,10 +40,10 @@ function rollReturn(roll) {
 $(function () {
   $(".nameInputs").submit(function(event) {
     event.preventDefault();
-    var playerOneNameInput = $("input#playeronename").val();
-    var playerTwoNameInput = $("input#playertwoname").val();
-    $(".ponename").text(playerOneNameInput);
-    $(".ptwoname").text(playerTwoNameInput);
+    var pOneNameInput = $("input#p-one-name").val();
+    var pTwoNameInput = $("input#p-two-name").val();
+    $(".p-one-name").text(pOneNameInput);
+    $(".p-two-name").text(pTwoNameInput);
   });
 
   $("#roll").click(function() {
@@ -63,17 +63,17 @@ $(function () {
       turnSum += turnScore[index];
       }
 
-      if ($(".player1show").is(':visible')) {
-        $(".ponescore").text(turnSum);
-        player1.score += turnSum;
-        $(".ponetotal").text(player1.score);
-        console.log(player1.score);
+      if ($(".p-one-show").is(':visible')) {
+        $(".p-one-score").text(turnSum);
+        pOne.score += turnSum;
+        $(".p-one-total").text(pOne.score);
+        console.log(pOne.score);
 
-      } else if ($(".player2show").is(':visible')) {
-        $(".ptwoscore").text(turnSum);
-        player2.score += turnSum;
-        $(".ptwototal").text(player2.score);
-        console.log(player2.score);
+      } else if ($(".p-two-show").is(':visible')) {
+        $(".p-two-score").text(turnSum);
+        pTwo.score += turnSum;
+        $(".p-two-total").text(pTwo.score);
+        console.log(pTwo.score);
       }
 
       // var player1scoretotal = turnSum + player1.score;
@@ -88,18 +88,18 @@ $(function () {
     $("#switch").click(function() {
       turnScore = [];
       // player1.score.push(turnSum);
-      if ($(".player1show").is(':visible')) {
+      if ($(".p-one-show").is(':visible')) {
       $("#showroll").empty();
       $("#showResult").empty();
-      $(".player2show").toggle();
-      $(".player1show").toggle();
-    } else if ($(".player2show").is(':visible')) {
+      $(".p-two-show").toggle();
+      $(".p-one-show").toggle();
+    } else if ($(".p-two-show").is(':visible')) {
       turnScore = [];
       // player2.score.push(turnSum);
       $("#showroll").empty();
       $("#showResult").empty();
-      $(".player1show").toggle();
-      $(".player2show").toggle();
+      $(".p-one-show").toggle();
+      $(".p-two-show").toggle();
       }
     });
 });

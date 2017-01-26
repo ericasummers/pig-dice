@@ -1,8 +1,8 @@
-#playerone {
+#p-one {
   background-color: skyblue;
 }
 
-#playertwo {
+#p-two {
   background-color: lightgreen;
 }
 
@@ -10,6 +10,6 @@
   background-color: #87E0E5;
 }
 
-.player2show {
+.p-two-show {
   display: none;
 }
