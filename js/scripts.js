@@ -6,7 +6,7 @@ var roundPlay = "Would you like to hold or roll again?";
 
 function Player (playerName, score) {
   this.playerName = name;
-  this.score = [];
+  this.score = 0;
 }
 
 // Player.prototype.updateScore = function() {
@@ -15,7 +15,7 @@ function Player (playerName, score) {
 
 
 // Player.prototype.
-
+//
 var player1 = new Player("playerone",0)
 var player2 = new Player("playertwo",0)
 
@@ -64,18 +64,40 @@ $(function () {
       }
 
       if ($(".player1show").is(':visible')) {
-      $(".ponescore").text(turnSum);
+        $(".ponescore").text(turnSum);
+        player1.score += turnSum;
+        $(".ponetotal").text(player1.score);
+        console.log(player1.score);
+
       } else if ($(".player2show").is(':visible')) {
-      $(".ptwoscore").text(turnSum);
+        $(".ptwoscore").text(turnSum);
+        player2.score += turnSum;
+        $(".ptwototal").text(player2.score);
+        console.log(player2.score);
       }
 
+      // var player1scoretotal = turnSum + player1.score;
+      // player1.score = player1scoretotal;
+      // for (i=0; Player.score<=100; i++) {
+      //   if ($(".player1show").is(':visible')) {
+      //     turnSum +  Player1.score
+      //   }
+      // }
     });
   });
     $("#switch").click(function() {
+      turnScore = [];
+      // player1.score.push(turnSum);
       if ($(".player1show").is(':visible')) {
+      $("#showroll").empty();
+      $("#showResult").empty();
       $(".player2show").toggle();
       $(".player1show").toggle();
     } else if ($(".player2show").is(':visible')) {
+      turnScore = [];
+      // player2.score.push(turnSum);
+      $("#showroll").empty();
+      $("#showResult").empty();
       $(".player1show").toggle();
       $(".player2show").toggle();
       }
