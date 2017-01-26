@@ -3,19 +3,13 @@ var turnOption = "";
 var turnScore = [];
 var roundOver = "Your turn is over";
 var roundPlay = "Would you like to hold or roll again?";
+// var gameEndMessage = "Game over, would you like to play again";
 
 function Player(playerName, score) {
     this.pName = name;
     this.score = 0;
 }
 
-// Player.prototype.updateScore = function() {
-//   this.score +  this.score  = this.ongoingScore;
-// }
-
-
-// Player.prototype.
-//
 var pOne = new Player("pOne", 0)
 var pTwo = new Player("pTwo", 0)
 
@@ -24,7 +18,6 @@ function roll(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-
 function rollReturn(roll) {
     if (roll === 1) {
         return roundOver;
@@ -32,7 +25,6 @@ function rollReturn(roll) {
         return roundPlay;
     }
 }
-
 
 // front end
 $(function() {
@@ -73,22 +65,28 @@ $(function() {
             $(".p-one-score").text(turnSum);
             pOne.score += turnSum;
             $(".p-one-total").text(pOne.score);
+            // $("#showResult").hide();
 
 
         } else if ($(".p-two-show").is(':visible')) {
             $(".p-two-score").text(turnSum);
             pTwo.score += turnSum;
             $(".p-two-total").text(pTwo.score);
+            // $("#showResult").hide();
 
         }
 
-        // var player1scoretotal = turnSum + player1.score;
-        // player1.score = player1scoretotal;
-        // for (i=0; Player.score<=100; i++) {
-        //   if ($(".player1show").is(':visible')) {
-        //     turnSum +  Player1.score
-        //   }
-        // }
+        function gameEnd(pOneScore, pTwoScore) {
+            if (pOne.score >= 10 || pTwo.score >= 10) {
+                // return gameEndMessage;
+                $(".game-over").show();
+                $("#gameplay").hide();
+                $("#showResult").hide();
+                $("#showroll").hide();
+            }
+        }
+        gameEnd(pOne.score, pTwo.score);
+
     });
 
     $("#switch").click(function() {
@@ -107,11 +105,14 @@ $(function() {
             $(".p-one-show").toggle();
             $(".p-two-show").toggle();
         }
-    });
-});
-//parseInt(input and ongoing score)
-// $("#rollAgain").click(function() {
-//   var rollResult = roll(1, 6);
-//   $("#showroll").text(rollResult);
 
-// });
+    });
+    $("#play-again").click(function() {
+        $("#gameplay").show();
+        $("#roll").show();
+        $("#hold").show();
+        $(".game-over").hide();
+
+    });
+
+});;
