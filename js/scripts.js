@@ -34,6 +34,7 @@ $(function() {
         var pTwoNameInput = $("input#p-two-name").val();
         $(".p-one-name").text(pOneNameInput);
         $(".p-two-name").text(pTwoNameInput);
+        $(".nameInputs").hide();
     });
 
     $("#roll").click(function() {
@@ -65,19 +66,19 @@ $(function() {
             $(".p-one-score").text(turnSum);
             pOne.score += turnSum;
             $(".p-one-total").text(pOne.score);
-            // $("#showResult").hide();
+            $("#showResult").hide();
 
 
         } else if ($(".p-two-show").is(':visible')) {
             $(".p-two-score").text(turnSum);
             pTwo.score += turnSum;
             $(".p-two-total").text(pTwo.score);
-            // $("#showResult").hide();
+            $("#showResult").hide();
 
         }
 
         function gameEnd(pOneScore, pTwoScore) {
-            if (pOne.score >= 10 || pTwo.score >= 10) {
+            if (pOne.score >= 35 || pTwo.score >= 35) {
                 // return gameEndMessage;
                 $(".game-over").show();
                 $("#gameplay").hide();
@@ -92,6 +93,7 @@ $(function() {
     $("#switch").click(function() {
         $("#hold").show();
         $("#roll").show();
+        $("#showResult").show();
         if ($(".p-one-show").is(':visible')) {
             turnScore = [];
             $("#showroll").empty();
@@ -112,6 +114,7 @@ $(function() {
         $("#roll").show();
         $("#hold").show();
         $(".game-over").hide();
+        $(".nameInputs").show();
 
     });
 

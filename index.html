@@ -7,6 +7,7 @@
   <link href="css/styles.css" rel="stylesheet" type="text/css">
   <script src="js/jquery-3.1.1.js"></script>
   <script src="js/scripts.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
   <title>Pig Dice Interactive Game</title>
 </head>
 
@@ -20,21 +21,24 @@
         <div class="form-group row">
           <label for="p-one-name" class="col-2 col-form-label">Player 1: Enter your name!</label>
           <div class="col-10">
-            <input class="form-control" type="text" value="Your name here" id="p-one-name">
+            <input class="form-control" type="text" id="p-one-name">
           </div>
         </div>
         <div class="form-group row">
           <label for="p-two-name" class="col-2 col-form-label">Player 2: Enter your name!</label>
           <div class="col-10">
-            <input class="form-control" type="text" value="Your name here" id="p-two-name">
+            <input class="form-control" type="text" id="p-two-name">
           </div>
         </div>
-
         <button type="submit" class="btn" id="names">Enter Names</button>
     </div>
     </form>
-    <div class="rulesinfo">
-      <h3>Rules:</h3>
+    <div class="panel rulesinfo">
+      <div class="panel-body">
+        <h3>Rules:</h3>
+        <p>The player will roll the dice. If the player rolls a one their turn is over and they score a zero. If they roll a 2-6 they have the option of holding and accepting that roll as their score or rolling again to try and increase the score. The player
+          continues rolling until they roll a one or until they choose to hold. </p>
+      </div>
     </div>
     <div class="row">
       <div class="col-md-6">
@@ -42,36 +46,25 @@
           <div class="panel-body">
             <h2>Player 1</h2>
             <h3 class="p-one-name"></h3>
-
-            <h4>Score:</h4>
+            <h4>Turn Score:</h4>
             <p class="p-one-score"></p>
-
             <h4>Overall Score:</h4>
             <p class="p-one-total"></p>
-
-
-
           </div>
         </div>
       </div>
-
       <div class="col-md-6">
         <div class="panel" id="p-two">
           <div class="panel-body">
             <h2>Player 2</h2>
             <h3 class="p-two-name"></h3>
-
-            <h4>Score:</h4>
+            <h4>Turn Score:</h4>
             <p class="p-two-score"></p>
-
             <h4>Overall Score:</h4>
             <p class="p-two-total"></p>
-
-
           </div>
         </div>
       </div>
-
     </div>
     <div class="panel" id="gameplay">
       <div class="panel-body">
@@ -80,16 +73,16 @@
         <h3 class="p-two-show">Player 2</h3>
         <h3>Play</h3>
         <button type="button" class="btn" id="roll">Roll!</button>&nbsp;&nbsp;<button type="button" class="btn disabled" id="hold">Hold</button>
-        <!-- <button type="button" class="btn" id="rollAgain">Roll again!</button> -->
-
         <p id="showroll"></p>
         <p id="showResult"></p>
       </div>
     </div>
-    <div class="game-over">
-      <h3>Game Over!</h3>
-      <p>Would you like to play again?</p>
-      <button class="btn" type="button" id="play-again">Play again?</button>
+    <div class="panel game-over">
+      <div class="panel-body">
+        <h3>Game Over!</h3>
+        <p>Would you like to play again?</p>
+        <button class="btn" type="button" id="play-again">Play again?</button>
+      </div>
     </div>
   </div>
 </body>

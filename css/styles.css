@@ -16,4 +16,37 @@
 
 .game-over {
   display: none;
+  background-color: #ff6666;
+  text-align: center;
+}
+.btn {
+  background-color: #00134d;
+  color: white;
+}
+
+.btn:hover {
+  color: red;
+}
+
+.btn:visited {
+  color: white;
+}
+
+.p-one-name {
+  font-family: 'Satisfy', cursive;
+  font-size: 40px;
+}
+
+.p-two-name {
+  font-family: 'Satisfy', cursive;
+  font-size: 40px;
+}
+
+.rulesinfo {
+  background-color: #A3C2C2;
+  margin-top: 10px;
+}
+
+.rulesinfo p {
+  font-size: 20px;
 }
